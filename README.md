@@ -50,6 +50,9 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
+Opcional: crea un archivo `.env` en la raiz del proyecto para definir variables
+como `NT_USE_SIMULATOR`, `NT_COMMANDS_DIR`, etc. (se cargan automaticamente).
+
 ## Uso del CLI de ejemplo
 
 ```bash

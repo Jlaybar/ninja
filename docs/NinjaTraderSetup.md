@@ -5,11 +5,16 @@
 
 ## 1. Conectar a Kinetick End-of-Day
 
-1. En NinjaTrader 8, habilita la conexion "Kinetick - End Of Day (Free)".
-2. Crea un AddOn (NinjaScript) similar a `AutoConnectKinetickEOD` que, al
-   iniciar NinjaTrader, verifique si la conexion ya esta activa y llame a
-   `Connection.Connect("Kinetick - End Of Day (Free)")` cuando sea necesario.
-3. Compila e instala el AddOn para que se cargue en cada inicio.
+NinjaTrader ya permite activar cualquier conexion al arrancar sin necesidad de
+codigo adicional. Configura la conexion gratuita de Kinetick siguiendo estos
+pasos:
+
+1. Abre `Control Center`.
+2. Menú `Connections -> Configure...`.
+3. En la lista de la derecha selecciona `Kinetick - End Of Day (Free)`.
+4. Marca la casilla `Connect on start up`.
+5. Guarda los cambios y reinicia NinjaTrader para verificar que la conexion se
+   establece automáticamente.
 
 ## 2. Canal de comunicacion por archivos
 
@@ -46,7 +51,8 @@ un nuevo archivo:
 ## 3. Activacion desde Visual Studio / scripts externos
 
 1. Lanza NinjaTrader desde tu automatizacion (`Process.Start`).
-2. Espera unos segundos a que cargue y se conecte el AddOn.
+2. Espera unos segundos a que cargue la plataforma y se establezca la
+   conexion (ademas del script/file-watcher que procese tus comandos).
 3. Escribe el archivo `DOWNLOAD` usando la sintaxis esperada.
 4. El cliente Python esperara automaticamente el CSV (hasta `NT_EXPORT_TIMEOUT`
    segundos) y lo cargara en SQLite.
@@ -60,5 +66,5 @@ un nuevo archivo:
   maquina.
 
 Necesitaras adaptar los `TODO` dentro de `src/nt_data/connectors/ninjatrader_client.py`
-para reflejar cualquier cambio de protocolo en tu AddOn (por ejemplo, estructuras
-JSON en lugar de comandos separados por `;`).
+para reflejar cualquier cambio de protocolo en tu script de exportacion
+(por ejemplo, estructuras JSON en lugar de comandos separados por `;`).

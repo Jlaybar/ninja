@@ -5,6 +5,14 @@ import os
 from dataclasses import dataclass
 from datetime import timedelta
 
+try:  # pragma: no cover - configuracion opcional
+    from dotenv import load_dotenv
+except ImportError:  # pragma: no cover
+    load_dotenv = None
+
+if load_dotenv is not None:
+    load_dotenv()
+
 
 def _get_env(name: str, default: str) -> str:
     value = os.getenv(name)

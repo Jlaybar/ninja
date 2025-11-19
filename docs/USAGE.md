@@ -57,6 +57,9 @@ print("Ultimas barras: ", recent)
 | `NT_EXPORT_POLL_SECONDS` | Intervalo de sondeo para detectar el CSV | `1.0` |
 | `NT_DATABASE_PATH` | Ruta completa a la base SQLite | `data/market_data.db` |
 
+Puedes definir estas variables en un archivo `.env` ubicado en la raÃ­z del
+proyecto (se cargara automaticamente gracias a `python-dotenv`).
+
 ## Formato esperado de los CSV
 
 El AddOn debe exportar archivos con encabezado `Date,Open,High,Low,Close,Volume`.
