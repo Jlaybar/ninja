@@ -1,0 +1,1 @@
+﻿"""Entradas de linea de comandos para nt_data."""
